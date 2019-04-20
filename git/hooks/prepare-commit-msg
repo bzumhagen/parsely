@@ -1,0 +1,5 @@
+#!/bin/sh
+# Automatically add version from version.sbt to the commit template
+version=$(cat version.sbt | sed 's/.* := \"\([0-9]*\.[0-9]*\.[0-9]*\)\"/\1/')
+
+sed -i '' "s/\(^version:.*$\)/version: ${version}/" $1
