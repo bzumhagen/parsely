@@ -13,7 +13,7 @@ class ParserTest extends FlatSpec with Matchers {
     val expectedRecords = Set(
       Record("John", "Doe", Male, "Blue", LocalDate.parse("01/01/1990", parser.formatter)),
       Record("Jane", "Doe", Female, "Red", LocalDate.parse("10/11/1989", parser.formatter)),
-      Record("Rain", "Doe", Other, "Black", LocalDate.parse("12/25/1970", parser.formatter))
+      Record("Rain", "Doe", Other("fluid"), "Black", LocalDate.parse("12/25/1970", parser.formatter))
     )
 
     File.usingTemporaryFile() { tempFile =>
@@ -29,7 +29,7 @@ class ParserTest extends FlatSpec with Matchers {
     val expectedRecords = Set(
       Record("John", "Doe", Male, "Blue", LocalDate.parse("01/01/1990", parser.formatter)),
       Record("Jane", "Doe", Female, "Red", LocalDate.parse("10/11/1989", parser.formatter)),
-      Record("Rain", "Doe", Other, "Black", LocalDate.parse("12/25/1970", parser.formatter))
+      Record("Rain", "Doe", Other("fluid"), "Black", LocalDate.parse("12/25/1970", parser.formatter))
     )
 
     File.usingTemporaryFile() { tempFile =>
@@ -45,7 +45,7 @@ class ParserTest extends FlatSpec with Matchers {
     val expectedRecords = Set(
       Record("John", "Doe", Male, "Blue", LocalDate.parse("01/01/1990", parser.formatter)),
       Record("Jane", "Doe", Female, "Red", LocalDate.parse("10/11/1989", parser.formatter)),
-      Record("Rain", "Doe", Other, "Black", LocalDate.parse("12/25/1970", parser.formatter))
+      Record("Rain", "Doe", Other("fluid"), "Black", LocalDate.parse("12/25/1970", parser.formatter))
     )
 
     File.usingTemporaryFile() { tempFile =>
