@@ -1,6 +1,5 @@
 Add ...
 
-reference: OLPCSRV-
 version:
 tag:
 
@@ -9,6 +8,5 @@ tag:
 # body is optional and should be limited to 72 characters per row
 # but can be as many rows as necessary
 #
-# reference: <ticket id (i.e. XYZ-123)>
 # version: <version (i.e. 1.2.0)>
 # tag: <describes the commit type (i.e. Added, Removed, Fixed, Deprecated, Maintenance)>
