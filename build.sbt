@@ -1,3 +1,4 @@
+
 name := "parsely"
 
 organization := "com.github.bzumhagen"
@@ -27,3 +28,7 @@ enablePlugins(BuildInfoPlugin)
 buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion)
 
 buildInfoPackage := "com.github.bzumhagen.parsely"
+
+coverageExcludedPackages := """com.github.bzumhagen.parsely.Parsely;"""
+coverageMinimum := 80
+coverageFailOnMinimum := true

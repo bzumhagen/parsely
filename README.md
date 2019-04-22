@@ -23,3 +23,14 @@ Supported input delimiters are `|` `,` ` `.
 Input is expected to have the following fields in the order given: Last Name, First Name, Gender, Favorite Color, Date of Birth (MM/dd/yyyy format).
 
 i.e. `Doe | Jane | Female | Blue | 01/22/1990`
+
+### Testing
+Tests can be executed with the following command `sbt test`.
+
+Test coverage can be calculated with the following command `sbt clean coverage test coverageReport`
+
+### Docker
+Docker image can be generated with the following command `sbt docker`
+
+### Changelog
+Changelog can be generated with the following command `sbt changelog`
