@@ -3,7 +3,7 @@ package com.github.bzumhagen.parsely.parse
 import java.time.LocalDate
 
 import better.files.File
-import com.github.bzumhagen.parsely.{Female, Male, Other, Record}
+import com.github.bzumhagen.parsely.{Female, Male, Other, Record, Records}
 import org.scalatest.{FlatSpec, Matchers}
 
 class ParserTest extends FlatSpec with Matchers {
@@ -21,7 +21,7 @@ class ParserTest extends FlatSpec with Matchers {
         tempFile.appendLine(s"$lastName | $firstName | $gender | $favoriteColor | ${parser.formatter.format(dob)}")
       }
 
-      parser.parse(tempFile) shouldBe expectedRecords
+      parser.parse(tempFile) shouldBe Records(expectedRecords)
     }
   }
 
@@ -37,7 +37,7 @@ class ParserTest extends FlatSpec with Matchers {
         tempFile.appendLine(s"$lastName, $firstName, $gender, $favoriteColor, ${parser.formatter.format(dob)}")
       }
 
-      parser.parse(tempFile) shouldBe expectedRecords
+      parser.parse(tempFile) shouldBe Records(expectedRecords)
     }
   }
 
@@ -53,13 +53,13 @@ class ParserTest extends FlatSpec with Matchers {
         tempFile.appendLine(s"$lastName $firstName $gender $favoriteColor ${parser.formatter.format(dob)}")
       }
 
-      parser.parse(tempFile) shouldBe expectedRecords
+      parser.parse(tempFile) shouldBe Records(expectedRecords)
     }
   }
 
   it should "successfully parse an empty file" in {
     File.usingTemporaryFile() { tempFile =>
-      parser.parse(tempFile) shouldBe Set.empty
+      parser.parse(tempFile).set shouldBe Set.empty
     }
   }
 

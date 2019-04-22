@@ -23,3 +23,12 @@ case class Record(
   favoriteColor: String,
   dob: LocalDate
 )
+
+case class Records(set: Set[Record]) {
+  def byGender: Seq[Record] =
+    set.toSeq.sortBy(r => (r.gender.toString.toLowerCase, r.lastName))
+  def byDob: Seq[Record] =
+    set.toSeq.sortWith((first, second) => first.dob.isBefore(second.dob))
+  def byLastName: Seq[Record] =
+    set.toSeq.sortWith(_.lastName > _.lastName)
+}

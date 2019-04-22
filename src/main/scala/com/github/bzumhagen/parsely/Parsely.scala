@@ -1,5 +1,7 @@
 package com.github.bzumhagen.parsely
 
+import java.io.OutputStreamWriter
+
 import better.files.File
 import com.github.bzumhagen.parsely.parse.Parser
 import scopt.OParser
@@ -33,6 +35,11 @@ object Parsely extends App {
 
   private def processFile(file: File): Unit = {
     val parser = new Parser
-    parser.parse(file).foreach(println)
+    val records = parser.parse(file)
+    val outputter = new Outputter(new OutputStreamWriter(System.out))
+
+    outputter.outputTable("By Gender (ASC)", records.byGender)
+    outputter.outputTable("By Date of Birth (ASC)", records.byDob)
+    outputter.outputTable("By Last Name (DESC)", records.byLastName)
   }
 }
