@@ -1,7 +1,9 @@
-package com.github.bzumhagen.parsely
+package com.github.bzumhagen.parsely.console
 
 import java.io.OutputStreamWriter
 import java.time.format.DateTimeFormatter
+
+import com.github.bzumhagen.parsely.Record
 
 class Outputter(writer: OutputStreamWriter) {
   private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")

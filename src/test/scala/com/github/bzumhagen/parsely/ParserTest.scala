@@ -1,9 +1,8 @@
-package com.github.bzumhagen.parsely.parse
+package com.github.bzumhagen.parsely
 
 import java.time.LocalDate
 
 import better.files.File
-import com.github.bzumhagen.parsely.{Female, Male, Other, Record, Records}
 import org.scalatest.{FlatSpec, Matchers}
 
 class ParserTest extends FlatSpec with Matchers {
@@ -55,6 +54,14 @@ class ParserTest extends FlatSpec with Matchers {
 
       parser.parse(tempFile) shouldBe Records(expectedRecords)
     }
+  }
+
+  it should "successfully parse a single line" in {
+    val expectedRecord = Record("John", "Doe", Male, "Blue", LocalDate.parse("01/01/1990", parser.formatter))
+    val expectedLine =
+      s"${expectedRecord.lastName} ${expectedRecord.firstName} ${expectedRecord.gender} ${expectedRecord.favoriteColor} ${parser.formatter.format(expectedRecord.dob)}"
+
+    parser.parse(expectedLine) shouldBe expectedRecord
   }
 
   it should "successfully parse an empty file" in {

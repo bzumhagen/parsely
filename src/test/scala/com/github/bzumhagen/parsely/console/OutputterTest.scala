@@ -1,9 +1,10 @@
-package com.github.bzumhagen.parsely
+package com.github.bzumhagen.parsely.console
 
 import java.io.{OutputStream, OutputStreamWriter}
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+import com.github.bzumhagen.parsely.{Female, Male, Other, Record}
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.{FlatSpec, Matchers}
 
